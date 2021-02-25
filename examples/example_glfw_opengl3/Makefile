@@ -32,7 +32,7 @@ LIBS =
 
 ## Using OpenGL loader: gl3w [default]
 SOURCES += ../libs/gl3w/GL/gl3w.c
-CXXFLAGS += -I../libs/gl3w -DIMGUI_IMPL_OPENGL_LOADER_GL3W
+CXXFLAGS += -I../libs/gl3w  -I../libs/glfw/include -DIMGUI_IMPL_OPENGL_LOADER_GL3W
 
 ## Using OpenGL loader: glew
 ## (This assumes a system-wide installation)
@@ -71,9 +71,9 @@ endif
 ifeq ($(UNAME_S), Darwin) #APPLE
 	ECHO_MESSAGE = "Mac OS X"
 	LIBS += -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
-	LIBS += -L/usr/local/lib -L/opt/local/lib
-	#LIBS += -lglfw3
-	LIBS += -lglfw
+	LIBS += -L/usr/local/lib -L/opt/local/lib -L/Users/wuhan/wuhan/CodingSpace/Coolender/libs/
+	LIBS += -lglfw3
+	# LIBS += -lglfw
 
 	CXXFLAGS += -I/usr/local/include -I/opt/local/include
 	CFLAGS = $(CXXFLAGS)
